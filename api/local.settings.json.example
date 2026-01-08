@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "OPENAI_API_KEY": "sk-your-openai-api-key-here",
+    "HUBSPOT_API_KEY": "pat-na1-your-hubspot-api-key-here"
+  }
+}

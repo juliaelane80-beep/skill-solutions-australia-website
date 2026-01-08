@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://skillssolutionsaustralia.com/sitemap.xml
+
+# Block trash and development folders
+User-agent: *
+Disallow: /trash/
+Disallow: /docs/
+Disallow: /api/obj/
+Disallow: /api/bin/
+
+# Allow all production content
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.html
+
+# Crawl delay for polite crawling
+Crawl-delay: 1

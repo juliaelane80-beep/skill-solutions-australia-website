@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Page Not Found | Skills Solutions Australia</title>
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css?v=6">
+    <link rel="stylesheet" href="assets/css/components.css?v=6">
+    <link rel="stylesheet" href="assets/css/animations.css?v=6">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .error-content {
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            animation: glitch 3s infinite;
+        }
+        
+        .error-title {
+            font-size: var(--font-size-xxl);
+            color: var(--color-text);
+            margin-bottom: var(--space-md);
+            font-weight: 700;
+        }
+        
+        .error-description {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+        }
+        
+        .error-links {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .particles-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 2px);
+            }
+            94% {
+                transform: translate(2px, -2px);
+            }
+            96% {
+                transform: translate(-2px, -2px);
+            }
+            98% {
+                transform: translate(2px, 2px);
+            }
+        }
+        
+        .search-box {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--color-text);
+            font-size: var(--font-size-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+        
+        .popular-pages {
+            margin-top: var(--space-lg);
+        }
+        
+        .popular-pages h3 {
+            font-size: var(--font-size-md);
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .popular-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+        }
+        
+        .popular-link {
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(189, 0, 255, 0.1);
+            border: 1px solid rgba(189, 0, 255, 0.3);
+            border-radius: var(--radius-sm);
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .popular-link:hover {
+            background: rgba(189, 0, 255, 0.2);
+            border-color: var(--primary-purple);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="particles-bg"></div>
+        
+        <div class="error-content" data-animate="fade-up">
+            <div class="error-code" data-animate="fade-up" data-delay="0">404</div>
+            
+            <h1 class="error-title" data-animate="fade-up" data-delay="100">
+                Page Not Found
+            </h1>
+            
+            <p class="error-description" data-animate="fade-up" data-delay="200">
+                Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+            </p>
+            
+            <div class="error-links" data-animate="fade-up" data-delay="300">
+                <a href="index.html" class="btn btn-primary btn-neon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Go Home
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    Contact Support
+                </a>
+            </div>
+            
+            <div class="search-box" data-animate="fade-up" data-delay="400">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search our site..."
+                    id="search-input"
+                    onkeypress="if(event.key === 'Enter') handleSearch()"
+                >
+            </div>
+            
+            <div class="popular-pages" data-animate="fade-up" data-delay="500">
+                <h3>Popular Pages</h3>
+                <div class="popular-links">
+                    <a href="program.html" class="popular-link">Future Ready Program</a>
+                    <a href="booking.html" class="popular-link">Book Consultation</a>
+                    <a href="pricing.html" class="popular-link">Pricing</a>
+                    <a href="partnerships.html" class="popular-link">Partnerships</a>
+                    <a href="recruitment.html" class="popular-link">Recruitment</a>
+                    <a href="about.html" class="popular-link">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple search functionality
+        function handleSearch() {
+            const query = document.getElementById('search-input').value.trim().toLowerCase();
+            
+            if (!query) return;
+            
+            // Simple keyword-based routing
+            const pages = {
+                'program': 'program.html',
+                'internship': 'program.html',
+                'future ready': 'program.html',
+                'book': 'booking.html',
+                'appointment': 'booking.html',
+                'consultation': 'booking.html',
+                'price': 'pricing.html',
+                'pricing': 'pricing.html',
+                'cost': 'pricing.html',
+                'partner': 'partnerships.html',
+                'employer': 'partnerships.html',
+                'recruit': 'recruitment.html',
+                'hire': 'recruitment.html',
+                'about': 'about.html',
+                'contact': 'contact.html',
+                'home': 'index.html'
+            };
+            
+            // Find matching page
+            for (const [keyword, page] of Object.entries(pages)) {
+                if (query.includes(keyword)) {
+                    window.location.href = page;
+                    return;
+                }
+            }
+            
+            // Default to homepage if no match
+            alert('No results found. Redirecting to homepage...');
+            window.location.href = 'index.html';
+        }
+        
+        // Add particle effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.querySelector('.particles-bg');
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 4 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = Math.random() > 0.5 ? '#00d4ff' : '#bd00ff';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out infinite`;
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+    
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

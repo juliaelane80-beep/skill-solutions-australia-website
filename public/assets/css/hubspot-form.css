@@ -1,0 +1,177 @@
+/* HubSpot Integration Form Styles */
+
+.hubspot-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.hubspot-form .form-group {
+  margin-bottom: var(--space-md);
+}
+
+.hubspot-form .form-label {
+  display: block;
+  color: var(--white);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.hubspot-form .form-input {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.hubspot-form .form-input:focus {
+  outline: none;
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.1);
+}
+
+.hubspot-form .form-input:invalid {
+  border-color: #dc3545;
+}
+
+.hubspot-form .checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  margin-bottom: var(--space-sm);
+}
+
+.hubspot-form .checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.hubspot-form .checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  margin-right: var(--space-sm);
+  margin-top: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.hubspot-form .checkbox-container input[type="checkbox"]:checked + .checkmark {
+  background: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.hubspot-form .checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.hubspot-form .checkbox-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+.hubspot-form .btn-loading {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.hubspot-form .spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hubspot-form .field-error {
+  color: #dc3545;
+  font-size: var(--font-size-xs);
+  margin-top: 4px;
+  display: block;
+}
+
+.hubspot-form .form-error-message {
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  padding: var(--space-sm);
+  border-radius: var(--border-radius);
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hubspot-form .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .hubspot-form .form-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Success state animation */
+.booking-success {
+  animation: slideInFromBottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form validation states */
+.hubspot-form .form-input:valid {
+  border-color: var(--primary-teal);
+}
+
+.hubspot-form .form-input:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+/* Focus states for accessibility */
+.hubspot-form .checkbox-container:focus-within .checkmark {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.1);
+}
+
+/* Loading button state */
+.hubspot-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.hubspot-form button:disabled:hover {
+  transform: none;
+}

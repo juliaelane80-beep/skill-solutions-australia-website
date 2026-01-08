@@ -1,0 +1,33 @@
+Azurite/
+
+# Trash/test files
+trash/
+
+# Binaries and archives
+*.tgz
+*.tar.gz
+*.zip
+ngrok
+ngrok*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Azure Functions local settings (contains secrets)
+api/local.settings.json
+local.settings.json
+.env.local

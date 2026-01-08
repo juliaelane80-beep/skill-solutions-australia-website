@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "www-skillssolutionsaustralia": {
+      "appLocation": "public",
+      "apiLocation": "api",
+      "outputLocation": "public",
+      "apiLanguage": "dotnetisolated",
+      "apiVersion": "8.0"
+    }
+  }
+}
