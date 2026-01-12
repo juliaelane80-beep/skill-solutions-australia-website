@@ -1,6 +1,42 @@
 {
   "routes": [
     {
+      "route": "/",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/about",
+      "rewrite": "/about.html"
+    },
+    {
+      "route": "/contact",
+      "rewrite": "/contact.html"
+    },
+    {
+      "route": "/pricing",
+      "rewrite": "/pricing.html"
+    },
+    {
+      "route": "/program",
+      "rewrite": "/program.html"
+    },
+    {
+      "route": "/solutions",
+      "rewrite": "/solutions.html"
+    },
+    {
+      "route": "/partnerships",
+      "rewrite": "/partnerships.html"
+    },
+    {
+      "route": "/recruitment",
+      "rewrite": "/recruitment.html"
+    },
+    {
+      "route": "/booking",
+      "rewrite": "/booking.html"
+    },
+    {
       "route": "/api/*",
       "allowedRoles": ["anonymous"]
     }
