@@ -89,6 +89,26 @@ class HubSpotIntegration {
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="australia-resident" class="form-label">Are you currently in Australia? *</label>
+                            <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-sm);">
+                                <label style="display: flex; align-items: center; cursor: pointer; padding: 8px 16px; background: var(--color-bg); border: 2px solid var(--border-color); border-radius: var(--radius-sm); transition: all 0.3s ease;">
+                                    <input type="radio" name="australia-resident" value="yes" id="australia-yes" required style="width: 16px; height: 16px; margin-right: 8px; cursor: pointer; accent-color: var(--primary-purple);">
+                                    <span style="color: var(--color-text); font-size: 0.95rem; font-weight: 500;">Yes</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer; padding: 8px 16px; background: var(--color-bg); border: 2px solid var(--border-color); border-radius: var(--radius-sm); transition: all 0.3s ease;">
+                                    <input type="radio" name="australia-resident" value="no" id="australia-no" required style="width: 16px; height: 16px; margin-right: 8px; cursor: pointer; accent-color: var(--primary-purple);">
+                                    <span style="color: var(--color-text); font-size: 0.95rem; font-weight: 500;">No</span>
+                                </label>
+                            </div>
+                            <div id="australia-warning" style="display: none; margin-top: var(--space-sm); padding: var(--space-md); background: rgba(239, 68, 68, 0.1); border-left: 3px solid var(--accent-red); border-radius: var(--radius-sm);">
+                                <p style="color: var(--accent-red); font-size: var(--font-size-sm); margin: 0; display: flex; align-items: center; gap: var(--space-xs);">
+                                    <span style="font-size: 1.2em;">⚠️</span>
+                                    <span>You must be in Australia to book an appointment with us.</span>
+                                </p>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary btn-neon btn-lg" style="width: 100%;" id="submit-btn">
                             <span class="btn-text">Continue to Booking</span>
                             <span class="btn-loading" style="display: none;">
@@ -164,7 +184,68 @@ class HubSpotIntegration {
             if (e.target.id === 'resume') {
                 this.handleFileSelection(e.target);
             }
+            
+            // Handle Australia residency selection
+            if (e.target.name === 'australia-resident') {
+                this.handleAustraliaResidency(e.target);
+            }
         });
+    }
+    
+    /**
+     * Handle Australia residency validation
+     * @param {HTMLInputElement} radioInput - The radio input element
+     */
+    handleAustraliaResidency(radioInput) {
+        const yesRadio = document.getElementById('australia-yes');
+        const noRadio = document.getElementById('australia-no');
+        const warning = document.getElementById('australia-warning');
+        const submitBtn = document.getElementById('submit-btn');
+        
+        if (!yesRadio || !noRadio || !warning || !submitBtn) return;
+        
+        const yesLabel = yesRadio.closest('label');
+        const noLabel = noRadio.closest('label');
+        
+        if (yesRadio.checked) {
+            // Enable submission
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+            warning.style.display = 'none';
+            
+            // Update visual feedback
+            if (yesLabel) {
+                yesLabel.style.borderColor = 'var(--primary-purple)';
+                yesLabel.style.background = 'rgba(168, 85, 247, 0.1)';
+            }
+            if (noLabel) {
+                noLabel.style.borderColor = 'var(--border-color)';
+                noLabel.style.background = 'var(--color-bg)';
+            }
+        } else if (noRadio.checked) {
+            // Disable submission and show warning
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+            warning.style.display = 'block';
+            
+            // Add shake animation
+            warning.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                warning.style.animation = '';
+            }, 500);
+            
+            // Update visual feedback
+            if (noLabel) {
+                noLabel.style.borderColor = 'var(--accent-red)';
+                noLabel.style.background = 'rgba(239, 68, 68, 0.1)';
+            }
+            if (yesLabel) {
+                yesLabel.style.borderColor = 'var(--border-color)';
+                yesLabel.style.background = 'var(--color-bg)';
+            }
+        }
     }
     
     /**
