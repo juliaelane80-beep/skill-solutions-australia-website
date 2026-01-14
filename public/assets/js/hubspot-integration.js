@@ -138,7 +138,7 @@ class HubSpotIntegration {
                     <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg);">
                         Your details have been saved. Now let's book your consultation time.
                     </p>
-                    <a href="https://outlook.office.com/book/SkillsSolutionsAustralia@NETORG17382552.onmicrosoft.com/?ismsaljsauthenabled" 
+                    <a href="https://calendly.com/julia-lane-skillssolutionsaustralia/30min" 
                        target="_blank" 
                        class="btn btn-primary btn-neon btn-lg">
                         Schedule Your Appointment
