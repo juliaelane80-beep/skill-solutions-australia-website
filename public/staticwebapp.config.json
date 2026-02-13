@@ -43,7 +43,7 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/**", "/api/*", "*.css", "*.js", "*.png", "*.jpg", "*.jpeg", "*.svg", "*.webp", "*.ico"]
+    "exclude": ["/assets/css/*", "/assets/js/*", "/assets/images/*", "/api/*", "*.css", "*.js", "*.png", "*.jpg", "*.jpeg", "*.svg", "*.webp", "*.ico"]
   },
   "mimeTypes": {
     ".json": "application/json",
