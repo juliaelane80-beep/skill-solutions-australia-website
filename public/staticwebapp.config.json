@@ -37,6 +37,10 @@
       "rewrite": "/booking.html"
     },
     {
+      "route": "/career-accelerator",
+      "rewrite": "/career-accelerator.html"
+    },
+    {
       "route": "/api/*",
       "allowedRoles": ["anonymous"]
     }

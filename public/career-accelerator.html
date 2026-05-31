@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Career Accelerator: practical one-on-one coaching to help Tasmanian job seekers improve resumes, secure more interviews, and stand out to local employers across all industries.">
+    <meta name="keywords" content="career coaching Tasmania, resume help Hobart, interview coaching, ATS resume, LinkedIn optimisation, job search Tasmania, ESL job seekers, career accelerator">
+    <meta name="author" content="Skills Solutions Australia">
+
+    <!-- Theme color for browser UI (will be updated by JavaScript) -->
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Career Accelerator | Tasmanian Job Search Coaching | Skills Solutions Australia</title>
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <style>
+        .career-support-grid {
+            display: grid;
+            gap: var(--space-xl);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        @media (max-width: 1024px) {
+            .career-support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 640px) {
+            .career-support-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Career Accelerator",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Skills Solutions Australia",
+            "url": "https://skillssolutionsaustralia.com",
+            "telephone": "0414670863",
+            "email": "Julia.lane@skillssolutionsaustralia.com.au",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Hobart",
+                "addressRegion": "Tasmania",
+                "addressCountry": "Australia"
+            }
+        },
+        "areaServed": [
+            "Tasmania",
+            "Hobart",
+            "Launceston",
+            "Devonport"
+        ],
+        "description": "One-on-one career coaching for Tasmanian job seekers across all industries. Resume strategy, ATS optimisation, LinkedIn profile improvements, mock interviews and employer-informed advice.",
+        "serviceType": [
+            "Career Coaching",
+            "Resume Writing",
+            "Interview Coaching",
+            "LinkedIn Optimisation"
+        ]
+    }
+    </script>
+</head>
+<body class="theme-dark">
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="/" class="logo" aria-label="Skills Solutions Australia Homepage">
+                <img src="assets/images/logo.png" alt="Skills Solutions Australia" class="logo-img" width="450" height="101" decoding="async">
+            </a>
+
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="/" class="nav-link" role="menuitem">Home</a></li>
+                <li role="none"><a href="/program" class="nav-link" role="menuitem">Program</a></li>
+                <li role="none"><a href="/career-accelerator" class="nav-link active" role="menuitem">Career Accelerator</a></li>
+                <li role="none"><a href="/partnerships" class="nav-link" role="menuitem">Partnerships</a></li>
+                <li role="none"><a href="/recruitment" class="nav-link" role="menuitem">Recruitment</a></li>
+                <li role="none"><a href="/about" class="nav-link" role="menuitem">About Us</a></li>
+                <li role="none"><a href="/pricing" class="nav-link" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="/contact" class="nav-link" role="menuitem">Contact</a></li>
+            </ul>
+
+            <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="section particles" data-particles="25" style="background: var(--color-bg); min-height: 100vh; display: flex; align-items: center; padding-top: var(--space-xl); padding-bottom: var(--space-xl);">
+            <div class="container">
+                <div class="text-center" data-animate="fade-up">
+                    <div class="hero-logo" data-animate="fade-up" data-delay="0" style="margin-bottom: var(--space-lg);">
+                        <img src="assets/images/logo.png" alt="Skills Solutions Australia" class="hero-logo-img" width="300" height="67" decoding="async">
+                    </div>
+                    <h1 class="gradient-text-bright" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-md); font-weight: 700;" data-animate="fade-up">
+                        Career Accelerator
+                    </h1>
+                    <p style="color: var(--color-text-muted); font-size: var(--font-size-lg); max-width: 800px; margin: 0 auto var(--space-md); line-height: 1.7;" data-animate="fade-up" data-delay="200">
+                        Stand out to Tasmanian employers, secure more interviews, and improve your chances of getting hired.
+                    </p>
+                    <p style="color: var(--color-text-muted); font-size: var(--font-size-md); max-width: 800px; margin: 0 auto var(--space-xl); line-height: 1.7;" data-animate="fade-up" data-delay="300">
+                        Whether you're struggling to secure interviews, unsure how to improve your applications, or trying to better understand what employers are looking for, the Career Accelerator program provides practical, one-on-one support tailored to your goals.
+                    </p>
+                    <div class="flex-center" style="gap: var(--space-lg); flex-wrap: wrap;" data-animate="fade-up" data-delay="400">
+                        <a href="/pricing#coaching-package" class="btn btn-primary btn-neon btn-lg" data-neon-trail="true">
+                            View Pricing
+                        </a>
+                        <a href="/booking" class="btn btn-secondary btn-lg">
+                            Book Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro / Who we work with -->
+        <section class="section particles" data-particles="12" style="background: var(--color-bg-secondary);">
+            <div class="container">
+                <div class="card card-neon panel-glass overlay-hologram card-shimmer" style="padding: var(--space-xl); text-align: center; max-width: 900px; margin: 0 auto;" data-animate="scale-up">
+                    <p style="font-size: var(--font-size-md); line-height: 1.7; margin: 0;">
+                        While Skills Solutions Australia predominantly works with ICT graduates through internships and entry-level employment pathways, the <strong>Career Accelerator</strong> program is available to job seekers across <strong>all industries</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Supported -->
+        <section class="section particles" data-particles="15" style="background: var(--color-bg);">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <h2 class="section-title">Industries Supported</h2>
+                    <p class="section-subtitle">
+                        We support job seekers from a range of industries across Tasmania.
+                    </p>
+                </div>
+
+                <div class="grid grid-3" data-animate="stagger">
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Healthcare</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Administration</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Customer Service</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Hospitality</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Engineering</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Professional Services</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">ICT &amp; Technology</h3>
+                    </div>
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item>
+                        <h3 class="card-title">Graduate &amp; Entry-Level Roles</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Career Support -->
+        <section class="section particles" data-particles="12" style="background: var(--color-bg-secondary);">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <h2 class="section-title">Practical Career Support</h2>
+                    <p class="section-subtitle">
+                        Designed to help you stand out in a competitive market.
+                    </p>
+                </div>
+
+                <div class="career-support-grid" data-animate="stagger">
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item style="padding: var(--space-xl);">
+                        <h3 style="color: var(--primary-purple); margin-bottom: var(--space-md);">Resume Strategy &amp; ATS Optimisation</h3>
+                        <p style="line-height: 1.7; color: var(--color-text-muted);">
+                            Detailed review and improvement of your resume with guidance on structure, positioning, keywords, and ATS-friendly formatting to better align with Australian employer expectations.
+                        </p>
+                    </div>
+
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item style="padding: var(--space-xl);">
+                        <h3 style="color: var(--primary-purple); margin-bottom: var(--space-md);">LinkedIn Profile Optimisation</h3>
+                        <p style="line-height: 1.7; color: var(--color-text-muted);">
+                            Practical updates to improve visibility and strengthen your professional online presence.
+                        </p>
+                    </div>
+
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item style="padding: var(--space-xl);">
+                        <h3 style="color: var(--primary-purple); margin-bottom: var(--space-md);">Job Application Guidance</h3>
+                        <p style="line-height: 1.7; color: var(--color-text-muted);">
+                            Support with tailoring applications, addressing selection criteria, and understanding how to better match what employers are looking for.
+                        </p>
+                    </div>
+
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item style="padding: var(--space-xl);">
+                        <h3 style="color: var(--primary-purple); margin-bottom: var(--space-md);">Mock Interviews &amp; Interview Coaching</h3>
+                        <p style="line-height: 1.7; color: var(--color-text-muted);">
+                            Practice real interview questions, improve communication and confidence, and receive honest, constructive feedback.
+                        </p>
+                    </div>
+
+                    <div class="card hover-lift card-neon panel-glass overlay-hologram card-shimmer" data-stagger-item style="padding: var(--space-xl);">
+                        <h3 style="color: var(--primary-purple); margin-bottom: var(--space-md);">Employer-Informed Advice</h3>
+                        <p style="line-height: 1.7; color: var(--color-text-muted);">
+                            Gain insights from someone who is well connected with employers across Tasmania and understands the local market, hiring expectations, and common mistakes job seekers make.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who This Program Is For -->
+        <section class="section particles" data-particles="12" style="background: var(--color-bg);">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <h2 class="section-title">Who This Program Is For</h2>
+                    <p class="section-subtitle">
+                        The Career Accelerator program may suit you if you are:
+                    </p>
+                </div>
+
+                <div class="grid grid-2" style="gap: var(--space-xxl); align-items: center;">
+                    <div data-animate="fade-right">
+                        <div class="benefit-list">
+                            <div class="benefit-item" style="margin-bottom: var(--space-lg);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">Applying for jobs but not getting interviews</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Find out what's holding your applications back and how to make them more competitive.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item" style="margin-bottom: var(--space-lg);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">New to Tasmania or Australia</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Understand the local job market and how to position your background for Australian employers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item" style="margin-bottom: var(--space-lg);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">An ESL job seeker</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Get patient, practical coaching to communicate your strengths clearly in writing and at interview.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-animate="fade-left">
+                        <div class="benefit-list">
+                            <div class="benefit-item" style="margin-bottom: var(--space-lg);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">Unsure how to present your experience</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Learn how to translate your background into language and structure that resonates with employers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item" style="margin-bottom: var(--space-lg);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">Lacking confidence in interviews</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Practise with structured mock interviews and build the confidence to perform under pressure.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-md);">
+                                    <div style="width: 12px; height: 12px; background: var(--neon-cyan); border-radius: 2px; flex-shrink: 0; margin-top: 10px; box-shadow: 0 0 8px var(--neon-cyan);"></div>
+                                    <div>
+                                        <h4 style="color: var(--charcoal); margin-bottom: var(--space-xs);">Wanting honest, practical career guidance</h4>
+                                        <p style="color: var(--light-grey); line-height: 1.6;">
+                                            Receive straightforward advice from someone who knows what Tasmanian employers actually want.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Makes This Different -->
+        <section class="section particles" data-particles="12" style="background: var(--color-bg-secondary);">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <h2 class="section-title">What Makes This Different</h2>
+                    <p class="section-subtitle">
+                        This is more than just resume writing.
+                    </p>
+                </div>
+
+                <div class="card card-neon panel-glass overlay-hologram card-shimmer" style="padding: var(--space-xl); max-width: 900px; margin: 0 auto;" data-animate="scale-up">
+                    <p style="font-size: var(--font-size-md); line-height: 1.7; margin-bottom: var(--space-lg);">
+                        The Career Accelerator program focuses on helping you understand the Tasmanian employment market and improving how you present yourself professionally to employers.
+                    </p>
+                    <p style="font-size: var(--font-size-md); line-height: 1.7; margin: 0;">
+                        With strong employer connections across Tasmania and extensive experience supporting graduates and job seekers into employment pathways, the support provided is <strong>practical</strong>, <strong>personalised</strong>, and <strong>focused on real outcomes</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section particles" data-particles="20" style="background: var(--color-bg);">
+            <div class="container">
+                <div class="text-center" data-animate="fade-up">
+                    <h2 class="section-title">Ready to Improve Your Job Search?</h2>
+                    <p class="section-subtitle" style="max-width: 700px; margin: 0 auto var(--space-xl);">
+                        Take the next step towards becoming more competitive in the Tasmanian job market.
+                    </p>
+                    <div class="flex-center" style="gap: var(--space-lg); flex-wrap: wrap;">
+                        <a href="/pricing#coaching-package" class="btn btn-primary btn-neon btn-lg" data-neon-trail="true">
+                            View Pricing
+                        </a>
+                        <a href="/booking" class="btn btn-secondary btn-lg">
+                            Book Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Skills Solutions Australia" width="450" height="101" loading="lazy">
+                    </div>
+                    <p style="color: var(--color-text-muted); font-size: var(--font-size-sm); margin: var(--space-sm) 0;">
+                        <strong>ABN:</strong> 63 680 331 140
+                    </p>
+                    <p class="footer-description">
+                        Transforming ICT graduates into industry-ready professionals through comprehensive career services and meaningful internship opportunities.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/skills-solutions-australia/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Follow us on LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="/career-accelerator" class="footer-link">Resume Writing</a></li>
+                        <li><a href="/career-accelerator" class="footer-link">Interview Coaching</a></li>
+                        <li><a href="/career-accelerator" class="footer-link">Career Guidance</a></li>
+                        <li><a href="/career-accelerator" class="footer-link">LinkedIn Optimisation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="/program" class="footer-link">Future Ready Internship</a></li>
+                        <li><a href="/career-accelerator" class="footer-link">Career Accelerator</a></li>
+                        <li><a href="/partnerships" class="footer-link">Employer Partnerships</a></li>
+                        <li><a href="/pricing#graduate-packages" class="footer-link">Graduate Packages</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="footer-contact-label">Phone:</span>
+                            <a href="tel:0414670863" class="footer-contact-link">0414 670 863</a>
+                        </li>
+                        <li>
+                            <span class="footer-contact-label">Director:</span>
+                            <a href="mailto:Julia.lane@skillssolutionsaustralia.com.au" class="footer-contact-link">Julia.lane@skillssolutionsaustralia.com.au</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+</body>
+</html>
