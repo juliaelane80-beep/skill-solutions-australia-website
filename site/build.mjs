@@ -3,52 +3,47 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { brand, nav, photos } from './content.mjs';
+import { brand, nav, imageSlots } from './content.mjs';
 import { pages } from './pages.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = join(root, 'public');
+const logo = (w = 400, h = 90) =>
+  `<img src="assets/ssa-forest-green-logo.svg" alt="${brand.name}" width="${w}" height="${h}">`;
 
-const logoMask = `<span class="logo__mark" role="img" aria-label="${brand.name}"></span>`;
-
-function header(current) {
-  current = current.replace(/^\//, '');
+function header(page) {
   const links = nav
-    .map(
-      (n) =>
-        `<li><a href="${n.href}"${n.href === current + '.html' ? ' aria-current="page"' : ''}>${n.label}</a></li>`,
-    )
-    .join('');
-  return `<header class="site-header">
-  <div class="site-header__bar">
-    <a class="logo" href="index.html" aria-label="${brand.name} – home">${logoMask}</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__label">Menu</span><span class="nav-toggle__icon" aria-hidden="true"></span></button>
-    <nav id="site-nav" class="site-nav" aria-label="Main">
-      <ul>${links}</ul>
-      <a class="btn btn--outline btn--compact" href="${brand.bookingUrl}" rel="noopener">Book a Call</a>
+    .map((n) => `<a href="${n.href}"${n.key === page.key ? ' aria-current="page"' : ''}>${n.label}</a>`)
+    .join('\n        ');
+  return `<header class="ssa-header">
+  <a class="ssa-skip" href="#main">Skip to content</a>
+  <div class="ssa-header-inner">
+    <a class="ssa-brand" href="index.html">${logo()}</a>
+    <nav class="ssa-nav" aria-label="Main navigation">
+        ${links}
     </nav>
+    <a class="ssa-button ssa-book" href="${page.cta}">Enquire Now</a>
   </div>
 </header>`;
 }
 
 function footer() {
-  return `<footer class="site-footer">
-  <div class="wrap site-footer__grid">
+  return `<footer class="ssa-footer">
+  <div class="ssa-footer-inner">
     <div>
-      <a class="logo logo--footer" href="index.html" aria-label="${brand.name} – home">${logoMask}</a>
-      <p class="site-footer__loc">${brand.locationLine}</p>
-      <p class="site-footer__abn">ABN ${brand.abn}</p>
+      <a class="ssa-footer-brand" href="index.html">${logo()}</a>
+      <p>Australia-wide services.</p>
+      <p class="ssa-footer-abn">ABN ${brand.abn}</p>
     </div>
-    <div>
-      <h2 class="site-footer__h">Explore</h2>
+    <nav aria-label="Footer">
+      <h2>Explore</h2>
       <ul>${nav.map((n) => `<li><a href="${n.href}">${n.label}</a></li>`).join('')}</ul>
-    </div>
+    </nav>
     <div>
-      <h2 class="site-footer__h">Get in touch</h2>
+      <h2>Get in touch</h2>
       <ul>
         <li><a href="${brand.phoneHref}">${brand.phone}</a></li>
         <li><a href="mailto:${brand.email}">${brand.email}</a></li>
-        <li><a href="${brand.bookingUrl}" rel="noopener">Book a call</a></li>
         <li><a href="${brand.linkedin}" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
       </ul>
     </div>
@@ -56,6 +51,7 @@ function footer() {
 </footer>`;
 }
 
+/** The 404 page can be served from any path, so it needs root-absolute URLs. */
 function absolutise(html) {
   return html.replace(/(href|src|srcset)="(?!https?:|\/|#|mailto:|tel:)/g, '$1="/');
 }
@@ -70,7 +66,7 @@ function document_(page) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${page.description}">
-<meta name="theme-color" content="#0c3320">
+<meta name="theme-color" content="#245638">
 ${page.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots" content="index, follow">'}
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
@@ -82,18 +78,18 @@ ${page.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots"
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap">
-<link rel="stylesheet" href="assets/css/ssa.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/ssa.css?v=2">
 ${page.jsonLd ? `<script type="application/ld+json">${JSON.stringify(page.jsonLd)}</script>` : ''}
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
-${header(page.path)}
-<main id="main">
+${header(page)}
+<main id="main" tabindex="-1">
 ${page.body}
 </main>
 ${footer()}
-<script src="assets/js/ssa.js?v=1" defer></script>
+<script src="assets/js/ssa.js?v=2" defer></script>
+${(page.scripts ?? []).join('\n')}
 </body>
 </html>
 `;
@@ -105,23 +101,19 @@ for (const page of pages) {
   console.log('wrote public/' + page.file);
 }
 
-// Imagery plan, generated from the same slot definitions.
+// Imagery plan, generated from the slot list in content.mjs.
 const plan = [
   '# Imagery plan',
   '',
   '_Generated by `node site/build.mjs` from `site/content.mjs`. Do not edit by hand._',
   '',
-  'Drop finished files into `public/assets/images/photos/<slot>.jpg` (optionally `<slot>-mobile.jpg` for a tighter mobile crop). The build swaps placeholders for real images automatically.',
+  'Julia has offered the final clean hero images (no overlaid text) and the logo and portrait files. Until they are supplied, the site uses placeholder photographs. To swap one in, replace the placeholder file (or point the slot\'s CSS at the new file) and rebuild.',
   '',
-  '**Rules:** diverse ethnicities, genders, ages and career stages, including diverse leadership; candid workplace activity, not staged handshakes or camera smiles; correct workwear and PPE; no repeated faces across slots; licensed or appropriately generated images only. Generated people must never be presented as SSA clients or staff.',
+  'Placeholder people are generated images and must not be presented as SSA clients or staff.',
   '',
-  '**Alt text:** supplied per slot below. Keep it descriptive of what is actually in the final image and update it if the photo differs.',
-  '',
-  '| Slot | Crop | Shot brief | Alt text |',
+  '| Slot | Final file from Julia | Currently using | Where it is set |',
   '| --- | --- | --- | --- |',
-  ...Object.entries(photos).map(
-    ([k, p]) => `| \`${k}\` | ${p.ratio} | ${p.brief} | ${p.alt} |`,
-  ),
+  ...imageSlots.map((s) => `| ${s.slot} | \`${s.final}\` | ${s.placeholder} | \`${s.css}\` |`),
   '',
 ].join('\n');
 mkdirSync(join(root, 'docs'), { recursive: true });

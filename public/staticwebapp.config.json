@@ -13,6 +13,10 @@
       "rewrite": "/employers.html"
     },
     {
+      "route": "/industries",
+      "rewrite": "/industries.html"
+    },
+    {
       "route": "/about",
       "rewrite": "/about.html"
     },
@@ -22,12 +26,12 @@
     },
     {
       "route": "/program",
-      "redirect": "/job-seekers#internship",
+      "redirect": "/job-seekers#career-services",
       "statusCode": 301
     },
     {
       "route": "/career-accelerator",
-      "redirect": "/job-seekers#coaching",
+      "redirect": "/job-seekers#career-services",
       "statusCode": 301
     },
     {
@@ -52,7 +56,7 @@
     },
     {
       "route": "/recruitment",
-      "redirect": "/employers#recruitment",
+      "redirect": "/employers#employer-solutions",
       "statusCode": 301
     },
     {

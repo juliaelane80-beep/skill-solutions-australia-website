@@ -22,15 +22,15 @@ public class EnquiryFunction
     /// <summary>Allowed service values and their display labels. Must match the site's enquiry form.</summary>
     private static readonly Dictionary<string, string> Services = new()
     {
-        ["internship-placement"] = "Job seeker: Internship Placement & Coaching",
+        ["career-support"] = "Job seeker: Career Support",
         ["job-search-coaching"] = "Job seeker: Job Search & Career Coaching",
-        ["individual-career-services"] = "Job seeker: Individual Career Services",
-        ["graduate-program-support"] = "Job seeker: Graduate Program Application Support",
-        ["pharmacist-support"] = "Job seeker: Career Support for Pharmacists",
-        ["host-intern"] = "Employer: Host an Intern",
-        ["recruitment"] = "Employer: Recruitment",
-        ["labour-hire"] = "Employer: Labour Hire",
-        ["general"] = "General enquiry",
+        ["individual-coaching"] = "Job seeker: Individual Career Coaching",
+        ["internship-coaching"] = "Job seeker: Internship Placement & Coaching",
+        ["employer"] = "Employer: Workforce Needs",
+        ["recruitment"] = "Employer: Recruitment & Talent Sourcing",
+        ["internship-hosting"] = "Employer: Internship Hosting",
+        ["labour-hire"] = "Employer: Contract & Labour Hire",
+        ["other"] = "Other enquiry",
     };
 
     private const int MinimumFillMs = 3000;

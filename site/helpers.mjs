@@ -1,37 +1,62 @@
-import { existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { photos } from './content.mjs';
+import { industryCards } from './content.mjs';
 
-const photoDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'assets', 'images', 'photos');
+/** Standard arrow used on buttons. */
+export const arrow = '<span aria-hidden="true">&rarr;</span>';
 
-export const arrow =
-  '<svg class="btn__arrow" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true" focusable="false"><path d="M1 7h19M14 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
+/** Button-styled link. `cls` adds modifier classes, e.g. 'ssa-outline'. */
+export const btn = (label, href, cls = '', attrs = '') =>
+  `<a class="ssa-button${cls ? ' ' + cls : ''}" href="${href}"${attrs ? ' ' + attrs : ''}>${label} ${arrow}</a>`;
 
-/** Rectangular button/link. variant: solid | outline | lime | light */
-export const btn = (label, href, variant = 'solid') =>
-  `<a class="btn btn--${variant}" href="${href}">${label}${arrow}</a>`;
+/** The seven industry cards used on Job Seekers and Employers. */
+export const industryList = () =>
+  `<ul class="ssa-jobs-industries">
+${industryCards
+  .map(
+    (c) =>
+      `      <li><img src="assets/images/industries/${c.id}.jpg" alt="" width="900" height="600" loading="lazy">
+        <h3>${c.title.replace(/&/g, '&amp;')}</h3></li>`,
+  )
+  .join('\n')}
+    </ul>`;
+
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 /**
- * Render a photo slot. Uses the real file when present, otherwise a labelled
- * placeholder describing the shot required.
+ * Testimonial block with floating cards. With several entries, manual previous/next controls are added
+ * by assets/js/ssa.js; without JavaScript every card is shown in order.
  */
-export function photo(key, { cls = '', priority = false } = {}) {
-  const p = photos[key];
-  if (!p) throw new Error(`Unknown photo slot: ${key}`);
-  if (p.file) {
-    return `<img class="photo ${cls}" src="${p.file}" alt="${p.alt}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async">`;
-  }
-  const desktop = `assets/images/photos/${key}.jpg`;
-  const mobile = `assets/images/photos/${key}-mobile.jpg`;
-  if (existsSync(join(photoDir, `${key}.jpg`))) {
-    const source = existsSync(join(photoDir, `${key}-mobile.jpg`))
-      ? `<source media="(max-width: 760px)" srcset="${mobile}">`
-      : '';
-    return `<picture>${source}<img class="photo p-${key} ${cls}" src="${desktop}" alt="${p.alt}" ${
-      priority ? 'fetchpriority="high"' : 'loading="lazy"'
-    } decoding="async"></picture>`;
-  }
-  return `<div class="photo photo--placeholder ${cls}" role="img" aria-label="${p.alt}"><span>Photo to supply · ${key}</span></div>`;
+export function testimonials({ id, title, items }) {
+  const many = items.length > 1;
+  const slides = items
+    .map((t, i) => {
+      const last = t.paras.length - 1;
+      const paras = t.paras
+        .map((p, n) => `<p>${n === 0 ? '“' : ''}${esc(p)}${n === last ? '”' : ''}</p>`)
+        .join('');
+      return `<li class="ssa-t-slide"${many ? ` data-index="${i}"` : ''}>
+          <figure>
+            <blockquote>${paras}</blockquote>
+            <figcaption><strong>${esc(t.name)}</strong><span>${esc(t.role)}</span>${t.note ? `<span class="ssa-t-note">${esc(t.note)}</span>` : ''}</figcaption>
+          </figure>
+        </li>`;
+    })
+    .join('\n        ');
+  const controls = many
+    ? `
+      <div class="ssa-t-controls" hidden>
+        <button class="ssa-t-btn" type="button" data-dir="-1" aria-label="Previous testimonial"><span aria-hidden="true">&larr;</span></button>
+        <p class="ssa-t-count" role="status" aria-live="polite"><span data-current>1</span> of ${items.length}</p>
+        <button class="ssa-t-btn" type="button" data-dir="1" aria-label="Next testimonial"><span aria-hidden="true">&rarr;</span></button>
+      </div>`
+    : '';
+  return `<section class="ssa-testimonials" aria-labelledby="${id}"${many ? ' data-testimonials' : ''}>
+    <div class="ssa-jobs-wrap">
+      <h2 id="${id}">${title}</h2>
+      <div class="ssa-t-stage">
+        <ol class="ssa-t-list">
+        ${slides}
+        </ol>${controls}
+      </div>
+    </div>
+  </section>`;
 }
-

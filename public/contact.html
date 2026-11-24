@@ -4,143 +4,138 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact | Skills Solutions Australia</title>
-<meta name="description" content="Contact Skills Solutions Australia. Book a call, or send an enquiry about job seeker or employer services.">
-<meta name="theme-color" content="#0c3320">
+<meta name="description" content="Get in touch with Skills Solutions Australia about career support, recruitment, internships or labour hire. Australia-wide services.">
+<meta name="theme-color" content="#245638">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://skillssolutionsaustralia.com/contact">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Skills Solutions Australia">
 <meta property="og:title" content="Contact | Skills Solutions Australia">
-<meta property="og:description" content="Contact Skills Solutions Australia. Book a call, or send an enquiry about job seeker or employer services.">
+<meta property="og:description" content="Get in touch with Skills Solutions Australia about career support, recruitment, internships or labour hire. Australia-wide services.">
 <meta property="og:url" content="https://skillssolutionsaustralia.com/contact">
 <meta property="og:locale" content="en_AU">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap">
-<link rel="stylesheet" href="assets/css/ssa.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/ssa.css?v=2">
 
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-header">
-  <div class="site-header__bar">
-    <a class="logo" href="index.html" aria-label="Skills Solutions Australia – home"><span class="logo__mark" role="img" aria-label="Skills Solutions Australia"></span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__label">Menu</span><span class="nav-toggle__icon" aria-hidden="true"></span></button>
-    <nav id="site-nav" class="site-nav" aria-label="Main">
-      <ul><li><a href="job-seekers.html">For Job Seekers</a></li><li><a href="employers.html">For Employers</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul>
-      <a class="btn btn--outline btn--compact" href="https://calendly.com/julia-lane-skillssolutionsaustralia/30min" rel="noopener">Book a Call</a>
+<header class="ssa-header">
+  <a class="ssa-skip" href="#main">Skip to content</a>
+  <div class="ssa-header-inner">
+    <a class="ssa-brand" href="index.html"><img src="assets/ssa-forest-green-logo.svg" alt="Skills Solutions Australia" width="400" height="90"></a>
+    <nav class="ssa-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="job-seekers.html">Job Seekers</a>
+        <a href="employers.html">Employers</a>
+        <a href="industries.html">Industries</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" aria-current="page">Contact</a>
     </nav>
+    <a class="ssa-button ssa-book" href="contact.html#enquiry">Enquire Now</a>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
+  <div class="ssa-contact">
+  <section class="ssa-contact-hero" aria-labelledby="contact-title">
+    <div class="ssa-contact-wrap">
+      <p class="ssa-contact-eyebrow">Get in touch</p>
+      <h1 id="contact-title">Let’s start a conversation.</h1>
+      <p>Whether you’re looking for career support, searching for talent or exploring opportunities to work together, we’d love to hear from you.</p>
+    </div>
+  </section>
 
-<section class="page-head wrap">
-  <p class="eyebrow">Contact</p>
-  <h1 class="display display--xl">Let’s talk.</h1>
-  <p class="lead">Tell us what you need and we will come back to you. Prefer to talk it through? Book a call.</p>
-  <div class="page-head__actions"><a class="btn btn--solid" href="https://calendly.com/julia-lane-skillssolutionsaustralia/30min">Book a Call<svg class="btn__arrow" width="22" height="14" viewBox="0 0 22 14" aria-hidden="true" focusable="false"><path d="M1 7h19M14 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a></div>
-</section>
-
-<section class="wrap routes" aria-label="Contact routes">
-  <div class="routes__item">
-    <h2 class="routes__h">Job seekers</h2>
-    <p>Internships, coaching, applications, graduate programs and pharmacist support.</p>
-    <a class="textlink" href="job-seekers.html">See job seeker services</a>
-  </div>
-  <div class="routes__item">
-    <h2 class="routes__h">Employers</h2>
-    <p>Internship hosting, recruitment and labour hire.</p>
-    <a class="textlink" href="employers.html">See employer services</a>
-  </div>
-  <div class="routes__item">
-    <h2 class="routes__h">Direct</h2>
-    <p><a href="tel:0414670863">0414 670 863</a><br><a href="mailto:Julia.lane@skillssolutionsaustralia.com.au">Julia.lane@skillssolutionsaustralia.com.au</a></p>
-    <p class="fine">Hobart, supporting Australia-wide.</p>
-  </div>
-</section>
-
-<section class="section wrap enquiry" id="enquiry">
-  <div class="section__head">
-    <h2 class="display">Send an enquiry</h2>
-  </div>
-  <form id="enquiry-form" class="form" action="/api/enquiry" method="post" novalidate>
-    <div class="form__row">
-      <div class="field">
-        <label for="f-service">What is your enquiry about?</label>
-        <select id="f-service" name="service" required>
-          <option value="">Choose a service</option>
-          <optgroup label="Job seekers"><option value="internship-placement">Internship Placement & Coaching</option><option value="job-search-coaching">Job Search & Career Coaching</option><option value="individual-career-services">Individual Career Services</option><option value="graduate-program-support">Graduate Program Application Support</option><option value="pharmacist-support">Career Support for Pharmacists</option></optgroup><optgroup label="Employers"><option value="host-intern">Host an Intern</option><option value="recruitment">Recruitment</option><option value="labour-hire">Labour Hire</option></optgroup><optgroup label="General"><option value="general">Something else</option></optgroup>
-        </select>
-        <p class="field__error" id="e-service" hidden></p>
-      </div>
-    </div>
-    <div class="form__row form__row--2">
-      <div class="field">
-        <label for="f-name">Full name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required>
-        <p class="field__error" id="e-name" hidden></p>
-      </div>
-      <div class="field">
-        <label for="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" required>
-        <p class="field__error" id="e-email" hidden></p>
-      </div>
-    </div>
-    <div class="form__row form__row--2">
-      <div class="field">
-        <label for="f-phone">Phone <span class="optional">(optional)</span></label>
-        <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="30">
-        <p class="field__error" id="e-phone" hidden></p>
-      </div>
-      <div class="field">
-        <label for="f-org">Organisation <span class="optional">(optional)</span></label>
-        <input id="f-org" name="organisation" type="text" autocomplete="organization" maxlength="150">
-      </div>
-    </div>
-    <div class="form__row">
-      <div class="field">
-        <label for="f-message">Message</label>
-        <textarea id="f-message" name="message" rows="6" maxlength="2000" required></textarea>
-        <p class="field__error" id="e-message" hidden></p>
-      </div>
-    </div>
-    <div class="hp" aria-hidden="true">
-      <label for="f-website">Leave this field empty</label>
-      <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
-    </div>
-    <p class="fine">We use these details only to respond to your enquiry.</p>
-    <div class="form__actions">
-      <button class="btn btn--solid" type="submit" id="f-submit"><span class="btn__text">Send enquiry</span></button>
-    </div>
-    <div id="form-status" class="form__status" role="status" aria-live="polite" tabindex="-1"></div>
-    <noscript><p class="form__status form__status--error">This form needs JavaScript. Please email <a href="mailto:Julia.lane@skillssolutionsaustralia.com.au">Julia.lane@skillssolutionsaustralia.com.au</a> or call 0414 670 863.</p></noscript>
-  </form>
-</section>
-
-</main>
-<footer class="site-footer">
-  <div class="wrap site-footer__grid">
-    <div>
-      <a class="logo logo--footer" href="index.html" aria-label="Skills Solutions Australia – home"><span class="logo__mark" role="img" aria-label="Skills Solutions Australia"></span></a>
-      <p class="site-footer__loc">Hobart, supporting Australia-wide.</p>
-      <p class="site-footer__abn">ABN 63 680 331 140</p>
-    </div>
-    <div>
-      <h2 class="site-footer__h">Explore</h2>
-      <ul><li><a href="job-seekers.html">For Job Seekers</a></li><li><a href="employers.html">For Employers</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
-    </div>
-    <div>
-      <h2 class="site-footer__h">Get in touch</h2>
+  <section class="ssa-contact-wrap ssa-contact-grid" id="enquiry" aria-labelledby="connect-title">
+    <div class="ssa-contact-details">
+      <h2 id="connect-title">Let’s connect</h2>
+      <p>Whether you’re exploring your next career move or looking for someone to join your team, we’d love to hear from you.</p>
       <ul>
-        <li><a href="tel:0414670863">0414 670 863</a></li>
-        <li><a href="mailto:Julia.lane@skillssolutionsaustralia.com.au">Julia.lane@skillssolutionsaustralia.com.au</a></li>
-        <li><a href="https://calendly.com/julia-lane-skillssolutionsaustralia/30min" rel="noopener">Book a call</a></li>
-        <li><a href="https://www.linkedin.com/company/skills-solutions-australia/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+          <a href="mailto:julia.lane@skillssolutionsaustralia.com.au">julia.lane@skillssolutionsaustralia.com.au</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 3 4 5-2 2a14 14 0 0 0 6 6l2-2 5 4-2 3C11 22 2 13 3 5z"/></svg>
+          <a href="tel:+61414670863">0414 670 863</a>
+        </li>
+        <li>
+          <span class="ssa-contact-in" aria-hidden="true">in</span>
+          <a href="https://www.linkedin.com/in/julialane80/" rel="noopener noreferrer">Connect with us on LinkedIn</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Australia-wide services</span>
+        </li>
+      </ul>
+    </div>
+
+    <form class="ssa-contact-form" id="enquiry-form" method="post" aria-label="Send an enquiry" novalidate>
+      <div>
+        <label for="enquiry-name">Full name *</label>
+        <input id="enquiry-name" name="name" autocomplete="name" required>
+        <p class="ssa-error" id="e-name" hidden></p>
+      </div>
+      <div>
+        <label for="enquiry-email">Email address *</label>
+        <input id="enquiry-email" name="email" type="email" autocomplete="email" required>
+        <p class="ssa-error" id="e-email" hidden></p>
+      </div>
+      <div>
+        <label for="enquiry-service">I’m interested in *</label>
+        <select id="enquiry-service" name="service" required>
+          <option value="">Select an option</option>
+          <option value="career-support">Career Support</option>
+          <option value="job-search-coaching">Job Search &amp; Career Coaching</option>
+          <option value="individual-coaching">Individual Career Coaching</option>
+          <option value="internship-coaching">Internship Placement &amp; Coaching</option>
+          <option value="employer">Workforce Needs</option>
+          <option value="recruitment">Recruitment &amp; Talent Sourcing</option>
+          <option value="internship-hosting">Internship Hosting</option>
+          <option value="labour-hire">Contract &amp; Labour Hire</option>
+          <option value="other">Other Enquiry</option>
+        </select>
+        <p class="ssa-error" id="e-service" hidden></p>
+      </div>
+      <div>
+        <label for="enquiry-message">Your message *</label>
+        <textarea id="enquiry-message" name="message" rows="5" required></textarea>
+        <p class="ssa-error" id="e-message" hidden></p>
+      </div>
+      <div class="ssa-hp" aria-hidden="true">
+        <label for="enquiry-website">Leave this field empty</label>
+        <input id="enquiry-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="ssa-button" id="f-submit" type="submit"><span class="btn__text">Send Enquiry</span> <span aria-hidden="true">&rarr;</span></button>
+      <p class="ssa-form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+      <noscript><p class="ssa-form-status ssa-form-status--error">This form needs JavaScript. Please email <a href="mailto:julia.lane@skillssolutionsaustralia.com.au">julia.lane@skillssolutionsaustralia.com.au</a> or call <a href="tel:+61414670863">0414 670 863</a>.</p></noscript>
+    </form>
+  </section>
+  </div>
+</main>
+<footer class="ssa-footer">
+  <div class="ssa-footer-inner">
+    <div>
+      <a class="ssa-footer-brand" href="index.html"><img src="assets/ssa-forest-green-logo.svg" alt="Skills Solutions Australia" width="400" height="90"></a>
+      <p>Australia-wide services.</p>
+      <p class="ssa-footer-abn">ABN 63 680 331 140</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2>Explore</h2>
+      <ul><li><a href="index.html">Home</a></li><li><a href="job-seekers.html">Job Seekers</a></li><li><a href="employers.html">Employers</a></li><li><a href="industries.html">Industries</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </nav>
+    <div>
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href="tel:+61414670863">0414 670 863</a></li>
+        <li><a href="mailto:julia.lane@skillssolutionsaustralia.com.au">julia.lane@skillssolutionsaustralia.com.au</a></li>
+        <li><a href="https://www.linkedin.com/in/julialane80/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
       </ul>
     </div>
   </div>
 </footer>
-<script src="assets/js/ssa.js?v=1" defer></script>
+<script src="assets/js/ssa.js?v=2" defer></script>
+
 </body>
 </html>

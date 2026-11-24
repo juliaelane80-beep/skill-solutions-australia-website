@@ -1,53 +1,63 @@
 /**
  * Skills Solutions Australia – site behaviour.
- * Mobile navigation and the enquiry form. No dependencies.
+ * Testimonial controls and the enquiry form. No dependencies.
  */
 (() => {
   document.documentElement.classList.add('js');
 
-  /** Mobile navigation toggle with Escape-to-close and focus return. */
-  const initNav = () => {
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('site-nav');
-    if (!toggle || !nav) return;
+  /** Testimonials: show one card at a time with manual previous/next controls. */
+  const initTestimonials = () => {
+    for (const root of document.querySelectorAll('[data-testimonials]')) {
+      const slides = [...root.querySelectorAll('.ssa-t-slide')];
+      const controls = root.querySelector('.ssa-t-controls');
+      const counter = root.querySelector('[data-current]');
+      if (slides.length < 2 || !controls) continue;
 
-    const setOpen = (open) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      nav.classList.toggle('is-open', open);
-    };
+      let index = 0;
+      const show = (next) => {
+        index = (next + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.hidden = i !== index;
+        });
+        counter.textContent = String(index + 1);
+      };
 
-    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-    nav.addEventListener('click', (e) => {
-      if (e.target.closest('a')) setOpen(false);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-        setOpen(false);
-        toggle.focus();
-      }
-    });
-    window.matchMedia('(min-width: 861px)').addEventListener('change', () => setOpen(false));
+      controls.hidden = false;
+      root.classList.add('is-enhanced');
+      controls.addEventListener('click', (e) => {
+        const button = e.target.closest('[data-dir]');
+        if (button) show(index + Number(button.dataset.dir));
+      });
+      controls.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') show(index - 1);
+        if (e.key === 'ArrowRight') show(index + 1);
+      });
+      show(0);
+    }
   };
 
-  /** Enquiry form: preselect service from ?service=, validate, submit to /api/enquiry. */
+  /** Enquiry form: preselect the topic from ?service=, validate, submit to /api/enquiry. */
   const initForm = () => {
     const form = document.getElementById('enquiry-form');
     if (!form) return;
 
     const status = document.getElementById('form-status');
     const submit = document.getElementById('f-submit');
+    const label = submit.querySelector('.btn__text');
     const startedAt = Date.now();
     const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const service = new URLSearchParams(location.search).get('service');
-    const select = form.elements.service;
-    if (service && [...select.options].some((o) => o.value === service)) select.value = service;
+    // Preselect the topic only when the selector is still empty and the value is a real option.
+    const service = new URLSearchParams(window.location.search).get('service');
+    const select = document.getElementById('enquiry-service');
+    if (select && !select.value && service && [...select.options].some((o) => o.value === service)) {
+      select.value = service;
+    }
 
     const rules = {
-      service: (v) => (v ? '' : 'Please choose what your enquiry is about.'),
       name: (v) => (v.trim() ? '' : 'Please enter your name.'),
       email: (v) => (EMAIL.test(v.trim()) ? '' : 'Please enter a valid email address.'),
-      phone: (v) => (!v.trim() || /^[+\d][\d\s()-]{5,}$/.test(v.trim()) ? '' : 'Please enter a valid phone number.'),
+      service: (v) => (v ? '' : 'Please choose what you are interested in.'),
       message: (v) => (v.trim().length >= 10 ? '' : 'Please tell us a little about what you need (at least 10 characters).'),
     };
 
@@ -74,7 +84,7 @@
 
     const setStatus = (message, isError) => {
       status.textContent = message;
-      status.classList.toggle('form__status--error', isError);
+      status.classList.toggle('ssa-form-status--error', isError);
       status.focus();
     };
 
@@ -91,7 +101,7 @@
       payload.elapsedMs = Date.now() - startedAt;
 
       submit.disabled = true;
-      submit.querySelector('.btn__text').textContent = 'Sending…';
+      label.textContent = 'Sending…';
       try {
         const res = await fetch('/api/enquiry', {
           method: 'POST',
@@ -109,11 +119,11 @@
         );
       } finally {
         submit.disabled = false;
-        submit.querySelector('.btn__text').textContent = 'Send enquiry';
+        label.textContent = 'Send Enquiry';
       }
     });
   };
 
-  initNav();
+  initTestimonials();
   initForm();
 })();
