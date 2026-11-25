@@ -60,3 +60,15 @@ export function testimonials({ id, title, items }) {
     </div>
   </section>`;
 }
+
+/** Expandable questions: native <details>, collapsed by default, keyboard and touch friendly. */
+export const faqList = (items) => `<div class="ssa-faq-list">
+${items
+  .map(
+    (f) => `      <details>
+        <summary>${f.q}</summary>
+        <div class="ssa-faq-answer">${f.a}</div>
+      </details>`,
+  )
+  .join('\n')}
+    </div>`;

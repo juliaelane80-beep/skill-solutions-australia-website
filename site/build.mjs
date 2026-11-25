@@ -79,7 +79,7 @@ ${page.noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/css/ssa.css?v=3">
+<link rel="stylesheet" href="assets/css/ssa.css?v=4">
 ${page.jsonLd ? `<script type="application/ld+json">${JSON.stringify(page.jsonLd)}</script>` : ''}
 </head>
 <body>

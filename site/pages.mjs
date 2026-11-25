@@ -2,8 +2,8 @@
 // Employers, Industries, About Us, Contact, Testimonials). Links use relative .html paths so the
 // pages also work from a plain file server; staticwebapp.config.json maps the clean URLs.
 import { brand, enquiryOptions, enquiryHref } from './content.mjs';
-import { btn, industryList, testimonials } from './helpers.mjs';
-import { jobSeekerFaqs } from './faqs.mjs';
+import { btn, faqList, industryList, testimonials } from './helpers.mjs';
+import { jobSeekerFaqs, recruitmentFaqs, hostingFaqs } from './faqs.mjs';
 import { homeTestimonial, seekerTestimonials, partnerTestimonials } from './testimonials.mjs';
 
 const heroIntro = (text) => `<p class="ssa-jobs-intro">${text}</p>`;
@@ -55,7 +55,7 @@ const jobSeekers = {
     'Personalised coaching, practical job-search support and industry connections for graduates, experienced professionals and career changers.',
   cta: enquiryHref('career-support'),
   body: `  <div class="ssa-jobs">
-  <section class="ssa-jobs-hero" aria-labelledby="jobs-title">
+  <section class="ssa-jobs-hero ssa-hero-centred" aria-labelledby="jobs-title">
     <div class="ssa-jobs-wrap">
       <p class="ssa-jobs-eyebrow">For Job Seekers</p>
       <h1 id="jobs-title">Your next career chapter starts here.</h1>
@@ -114,17 +114,9 @@ const jobSeekers = {
   ${testimonials({ id: 'seekers-testimonials-title', title: 'Success Stories', items: seekerTestimonials })}
 
   <section class="ssa-jobs-wrap ssa-jobs-section ssa-faqs" aria-labelledby="faq-title">
-    <h2 id="faq-title">Frequently Asked Questions</h2>
-    <div class="ssa-faq-list">
-${jobSeekerFaqs
-  .map(
-    (f) => `      <details>
-        <summary>${f.q}</summary>
-        <div class="ssa-faq-answer">${f.a}</div>
-      </details>`,
-  )
-  .join('\n')}
-    </div>
+    <h2 id="faq-title">Job Seekers FAQs</h2>
+    ${faqList(jobSeekerFaqs)}
+    <p class="ssa-faq-cta">${btn('Enquire Now', enquiryHref())}</p>
   </section>
   </div>`,
 };
@@ -138,7 +130,7 @@ const employers = {
     'Recruitment and talent sourcing, internship hosting, and contract and labour hire for Australian employers.',
   cta: enquiryHref('employer'),
   body: `  <div class="ssa-jobs ssa-employers">
-  <section class="ssa-jobs-hero" aria-labelledby="employer-title">
+  <section class="ssa-jobs-hero ssa-hero-centred" aria-labelledby="employer-title">
     <div class="ssa-jobs-wrap">
       <p class="ssa-jobs-eyebrow">For Employers</p>
       <h1 id="employer-title">The right people.<br>The right opportunities.</h1>
@@ -227,6 +219,20 @@ const employers = {
     </ol>
   </section>
 
+  <section class="ssa-jobs-wrap ssa-jobs-section ssa-faqs" aria-labelledby="employer-faq-title">
+    <h2 id="employer-faq-title">Employers FAQs</h2>
+    <div class="ssa-faq-group" aria-labelledby="faq-recruitment-title" role="group">
+      <h3 id="faq-recruitment-title">Recruitment</h3>
+      ${faqList(recruitmentFaqs)}
+      <p class="ssa-faq-cta">${btn('Talk to Us About Hiring', enquiryHref('recruitment'))}</p>
+    </div>
+    <div class="ssa-faq-group" aria-labelledby="faq-hosting-title" role="group">
+      <h3 id="faq-hosting-title">Hosting an Intern</h3>
+      ${faqList(hostingFaqs)}
+      <p class="ssa-faq-cta">${btn('Talk to Us About Hosting an Intern', enquiryHref('internship-hosting'))}</p>
+    </div>
+  </section>
+
   <section class="ssa-jobs-benefits" aria-labelledby="employer-close-title">
     <div class="ssa-jobs-wrap ssa-employers-close">
       <h2 id="employer-close-title">Let’s find the right talent for your business.</h2>
@@ -246,7 +252,7 @@ const industries = {
   cta: enquiryHref(),
   scripts: ['<script type="module" src="assets/js/industries.js"></script>'],
   body: `  <div class="ssa-jobs ssa-industries">
-  <section class="ssa-jobs-hero" aria-labelledby="industries-title">
+  <section class="ssa-jobs-hero ssa-hero-centred" aria-labelledby="industries-title">
     <div class="ssa-jobs-wrap">
       <h1 id="industries-title">Industries We Support</h1>
       <p class="ssa-jobs-intro">Career support for job seekers and recruitment, internships and labour hire for employers across Australia.</p>
