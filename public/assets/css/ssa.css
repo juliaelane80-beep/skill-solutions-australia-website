@@ -177,10 +177,10 @@ a { color: var(--ssa-green); }
   color: var(--ssa-white);
   background-color: var(--ssa-deep);
   background-image:
-    linear-gradient(90deg, #073924 0%, rgb(7 57 36 / .96) 36%, rgb(7 57 36 / .76) 51%, transparent 74%),
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
     url("../images/photos/job-seekers-office.jpg");
   background-size: cover;
-  background-position: center, 88% center;
+  background-position: center, center 18%;
 }
 .ssa-jobs-hero .ssa-jobs-wrap { padding-inline: clamp(0rem, 4vw, 3rem); }
 .ssa-jobs-hero h1 { max-width: 13ch; font-size: clamp(2.4rem, 5.2vw, 5rem); }
@@ -204,9 +204,8 @@ a { color: var(--ssa-green); }
 .ssa-jobs a:focus-visible { outline: 2px solid var(--ssa-deep); outline-offset: 3px; }
 .ssa-jobs-hero a:focus-visible { outline-color: var(--ssa-white); }
 
-/* Centred hero titles (Job Seekers, Employers, Industries): an even overlay replaces the left-weighted gradient's contrast. */
-.ssa-hero-centred { position: relative; isolation: isolate; justify-content: center; text-align: center; }
-.ssa-hero-centred::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(7 57 36 / .6); }
+/* Centred hero titles (Job Seekers, Employers, Industries): the hero gradients are an even tint so the whole photo shows. */
+.ssa-hero-centred { justify-content: center; text-align: center; }
 .ssa-hero-centred h1, .ssa-hero-centred .ssa-jobs-intro { margin-inline: auto; }
 .ssa-hero-centred .ssa-jobs-actions { justify-content: center; }
 .ssa-employers .ssa-hero-centred h1 { max-width: 20ch; }
@@ -322,7 +321,7 @@ a { color: var(--ssa-green); }
 /* ---------- Employers ---------- */
 .ssa-employers .ssa-jobs-hero {
   background-image:
-    linear-gradient(90deg, #073924 0%, rgb(7 57 36 / .96) 36%, rgb(7 57 36 / .76) 51%, transparent 74%),
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
     url("../images/photos/employers-office.jpg");
   background-position: center, 80% center;
 }
@@ -356,9 +355,9 @@ a { color: var(--ssa-green); }
 /* ---------- Industries ---------- */
 .ssa-industries .ssa-jobs-hero {
   background-image:
-    linear-gradient(90deg, #073924 2%, rgb(7 57 36 / .9) 32%, rgb(7 57 36 / .45) 57%, transparent 82%),
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
     url("../images/photos/industries-team.jpg");
-  background-position: center, 70% center;
+  background-position: center, 70% 12%;
 }
 .ssa-industries .ssa-jobs-hero h1 { max-width: 13ch; }
 .ssa-industry-grid { padding-block: clamp(1.25rem, 4vw, 3rem); }
@@ -590,7 +589,7 @@ html:not(.js) #f-submit { display: none; }
     background-image:
       linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
       url("../images/photos/job-seekers-office.jpg");
-    background-position: center, 78% center;
+    background-position: center, center 18%;
   }
   .ssa-employers .ssa-jobs-hero {
     background-image:
