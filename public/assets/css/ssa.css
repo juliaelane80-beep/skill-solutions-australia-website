@@ -113,7 +113,7 @@ a { color: var(--ssa-green); }
   background: var(--ssa-deep);
   background-image:
     linear-gradient(90deg, rgb(6 38 20 / .92), rgb(6 38 20 / .68) 48%, rgb(6 38 20 / .10) 100%),
-    url("../images/photos/home-hero.jpg");
+    url("../images/photos/sydney-harbour-office.jpg");
   background-size: cover;
   background-position: center, center 45%;
 }
@@ -178,7 +178,7 @@ a { color: var(--ssa-green); }
   background-color: var(--ssa-deep);
   background-image:
     linear-gradient(90deg, #073924 0%, rgb(7 57 36 / .96) 36%, rgb(7 57 36 / .76) 51%, transparent 74%),
-    url("../images/photos/seekers-hero.jpg");
+    url("../images/photos/job-seekers-office.jpg");
   background-size: cover;
   background-position: center, 88% center;
 }
@@ -313,7 +313,7 @@ a { color: var(--ssa-green); }
 .ssa-employers .ssa-jobs-hero {
   background-image:
     linear-gradient(90deg, #073924 0%, rgb(7 57 36 / .96) 36%, rgb(7 57 36 / .76) 51%, transparent 74%),
-    url("../images/photos/employers-hero.jpg");
+    url("../images/photos/employers-office.jpg");
   background-position: center, 80% center;
 }
 .ssa-employers .ssa-jobs-hero h1 { max-width: 23ch; font-size: clamp(2.4rem, 4.1vw, 4.5rem); }
@@ -347,7 +347,7 @@ a { color: var(--ssa-green); }
 .ssa-industries .ssa-jobs-hero {
   background-image:
     linear-gradient(90deg, #073924 2%, rgb(7 57 36 / .9) 32%, rgb(7 57 36 / .45) 57%, transparent 82%),
-    url("../images/photos/home-hero.jpg");
+    url("../images/photos/industries-team.jpg");
   background-position: center, 70% center;
 }
 .ssa-industries .ssa-jobs-hero h1 { max-width: 13ch; }
@@ -401,7 +401,7 @@ a { color: var(--ssa-green); }
   padding-block: clamp(2.8rem, 6vw, 6rem);
   background-image:
     linear-gradient(90deg, rgb(6 38 20 / .98), rgb(6 38 20 / .88) 42%, rgb(6 38 20 / .2) 70%, transparent),
-    url("../images/photos/employers-cta.jpg");
+    url("../images/photos/about-office.jpg");
   background-size: cover;
   background-position: center, center 48%;
 }
@@ -459,7 +459,7 @@ a { color: var(--ssa-green); }
   background: var(--ssa-deep);
   background-image:
     linear-gradient(90deg, #062614 0%, rgb(6 38 20 / .95) 29%, rgb(6 38 20 / .62) 39%, transparent 58%),
-    url("../images/photos/home-employers.jpg");
+    url("../images/photos/contact-hobart-waterfront.jpg");
   background-size: cover;
   background-position: center, center 48%;
 }
@@ -577,18 +577,18 @@ html:not(.js) #f-submit { display: none; }
     min-height: 32rem;
     background-image:
       linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
-      url("../images/photos/seekers-hero.jpg");
+      url("../images/photos/job-seekers-office.jpg");
     background-position: center, 78% center;
   }
   .ssa-employers .ssa-jobs-hero {
     background-image:
       linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
-      url("../images/photos/employers-hero.jpg");
+      url("../images/photos/employers-office.jpg");
   }
   .ssa-industries .ssa-jobs-hero {
     background-image:
       linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
-      url("../images/photos/home-hero.jpg");
+      url("../images/photos/industries-team.jpg");
   }
   .ssa-jobs-industries, .ssa-jobs-benefits ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ssa-employers-process ol { grid-template-columns: 1fr; }
@@ -596,7 +596,7 @@ html:not(.js) #f-submit { display: none; }
   .ssa-contact-hero {
     background-image:
       linear-gradient(0deg, #062614 0%, rgb(6 38 20 / .9) 55%, rgb(6 38 20 / .45)),
-      url("../images/photos/home-employers.jpg");
+      url("../images/photos/contact-hobart-waterfront.jpg");
     background-position: center, 68% center;
   }
 }
@@ -606,7 +606,7 @@ html:not(.js) #f-submit { display: none; }
   .ssa-about-hero {
     background-image:
       linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .9) 55%, rgb(7 57 36 / .5)),
-      url("../images/photos/employers-cta.jpg");
+      url("../images/photos/about-office.jpg");
     background-position: center, 72% center;
   }
 }
@@ -620,7 +620,7 @@ html:not(.js) #f-submit { display: none; }
   .ssa-hero {
     background-image:
       linear-gradient(0deg, rgb(6 38 20 / .98), rgb(6 38 20 / .82) 55%, rgb(6 38 20 / .28)),
-      url("../images/photos/home-hero.jpg");
+      url("../images/photos/sydney-harbour-office.jpg");
     background-position: center, 62% center;
   }
   .ssa-hero-inner { padding-bottom: 2.5rem; }

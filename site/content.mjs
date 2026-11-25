@@ -54,25 +54,17 @@ export const industryCards = [
  * placeholders named in `placeholder`. Replace the file and keep the slot's CSS in sync.
  */
 export const imageSlots = [
-  { slot: 'Home hero', final: 'sydney-harbour-office.webp', placeholder: 'photos/home-hero.jpg', css: '.ssa-hero' },
-  { slot: 'Job Seekers hero', final: 'job-seekers-office.webp', placeholder: 'photos/seekers-hero.jpg', css: '.ssa-jobs-hero' },
-  { slot: 'Employers hero', final: 'employers-office.webp', placeholder: 'photos/employers-hero.jpg', css: '.ssa-employers .ssa-jobs-hero' },
-  { slot: 'Industries hero', final: 'industries-team.webp', placeholder: 'photos/home-hero.jpg (reused)', css: '.ssa-industries .ssa-jobs-hero' },
-  { slot: 'About hero', final: 'about-office.webp', placeholder: 'photos/employers-cta.jpg', css: '.ssa-about-hero' },
-  { slot: 'Contact hero', final: 'contact-hobart-waterfront.webp', placeholder: 'photos/home-employers.jpg', css: '.ssa-contact-hero' },
-  ...[
-    ['it-digital', 'industry-it'],
-    ['engineering', 'industry-engineering'],
-    ['healthcare', 'industry-health'],
-    ['accounting', 'industry-finance'],
-    ['business', 'industry-business'],
-    ['marketing', 'seekers-graduate (stand-in)'],
-    ['ai', 'home-seekers (stand-in)'],
-  ].map(([id, from]) => ({
+  { slot: 'Home hero', final: 'sydney-harbour-office', placeholder: 'photos/sydney-harbour-office.jpg (final)', css: '.ssa-hero' },
+  { slot: 'Job Seekers hero', final: 'job-seekers-office', placeholder: 'photos/job-seekers-office.jpg (final)', css: '.ssa-jobs-hero' },
+  { slot: 'Employers hero', final: 'employers-office', placeholder: 'photos/employers-office.jpg (final)', css: '.ssa-employers .ssa-jobs-hero' },
+  { slot: 'Industries hero', final: 'industries-team', placeholder: 'photos/industries-team.jpg (final)', css: '.ssa-industries .ssa-jobs-hero' },
+  { slot: 'About hero', final: 'about-office', placeholder: 'photos/about-office.jpg (final)', css: '.ssa-about-hero' },
+  { slot: 'Contact hero', final: 'contact-hobart-waterfront', placeholder: 'photos/contact-hobart-waterfront.jpg (final)', css: '.ssa-contact-hero' },
+  ...['it-digital', 'engineering', 'healthcare', 'accounting', 'business', 'marketing', 'ai'].map((id) => ({
     slot: `Industry card: ${id}`,
-    final: `industries/${id}.webp`,
-    placeholder: `industries/${id}.jpg (cropped from photos/${from}.jpg)`,
-    css: 'images/industries/' + id + '.jpg',
+    final: `industries/${id}`,
+    placeholder: `industries/${id}.jpg (final, 396px wide source)`,
+    css: 'public/assets/js/industries.js',
   })),
-  { slot: 'Founder portrait', final: 'julia-lane-founder.webp', placeholder: 'images/julia-lane-founder.jpg (final portrait, in use)', css: 'about.html' },
+  { slot: 'Founder portrait', final: 'julia-lane-founder', placeholder: 'images/julia-lane-founder.jpg (final)', css: 'about.html' },
 ];
