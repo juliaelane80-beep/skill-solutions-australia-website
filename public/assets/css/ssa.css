@@ -1,0 +1,648 @@
+/*
+ * Skills Solutions Australia – shared stylesheet.
+ * Implements the final developer handoffs (Home, Job Seekers, Employers, Industries, About Us,
+ * Contact, Testimonials). Image URLs are relative to this file so pages also work from a plain
+ * file server. No inline styles are used anywhere (the CSP forbids them).
+ */
+
+/* ---------- Tokens and base ---------- */
+:root {
+  --ssa-green: #245638;
+  --ssa-deep: #062614;
+  --ssa-band: #073924;
+  --ssa-cream: #FFFFFF; /* page background (white per Julia; name kept for the many references) */
+  --ssa-ink: #111111;
+  --ssa-white: #FFFFFF;
+  --ssa-lime: #F4EE42;
+  --ssa-field: #53645B;
+  --ssa-sans: "Inter", Arial, sans-serif;
+  --ssa-serif: "Playfair Display", Georgia, serif;
+  --ssa-shadow: 0 2px 8px rgb(6 38 20 / .12);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--ssa-ink);
+  background: var(--ssa-cream);
+  font-family: var(--ssa-sans);
+  line-height: 1.5;
+}
+img { max-width: 100%; }
+main:focus { outline: none; }
+a { color: var(--ssa-green); }
+
+/* ---------- Header ---------- */
+.ssa-header, .ssa-home {
+  color: var(--ssa-ink);
+  background: var(--ssa-cream);
+  font-family: var(--ssa-sans);
+}
+.ssa-header { position: sticky; top: 0; z-index: 20; }
+.ssa-header-inner {
+  width: min(100%, 100rem);
+  min-height: 5.75rem;
+  margin-inline: auto;
+  padding: .75rem clamp(1rem, 3vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(.75rem, 2vw, 2rem);
+}
+.ssa-brand img { display: block; width: clamp(9rem, 20vw, 21rem); height: auto; }
+.ssa-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem clamp(.75rem, 2vw, 2.5rem);
+}
+.ssa-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ssa-nav a:hover { text-decoration: underline; }
+.ssa-nav a[aria-current="page"] { color: var(--ssa-green); font-weight: 700; }
+.ssa-skip {
+  position: absolute;
+  z-index: 1;
+  top: .5rem;
+  left: .5rem;
+  padding: .75rem;
+  color: var(--ssa-white);
+  background: var(--ssa-green);
+}
+.ssa-skip:not(:focus) { clip-path: inset(50%); }
+
+/* ---------- Buttons ---------- */
+.ssa-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 2.75rem;
+  padding: .7rem 1.2rem;
+  border: 2px solid var(--ssa-green);
+  border-radius: .4rem;
+  background: var(--ssa-green);
+  color: var(--ssa-white);
+  font: 650 1rem/1.25 var(--ssa-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+.ssa-button:hover {
+  border-color: var(--ssa-deep);
+  background: var(--ssa-deep);
+  color: var(--ssa-white);
+}
+.ssa-button[disabled] { opacity: .7; cursor: progress; }
+.ssa-book { border-radius: 999px; white-space: nowrap; }
+.ssa-outline { color: var(--ssa-green); background: transparent; }
+.ssa-outline:hover { color: var(--ssa-green); background: #E7EDE7; border-color: var(--ssa-green); }
+.ssa-header a:focus-visible, .ssa-home a:focus-visible { outline: 2px solid var(--ssa-ink); outline-offset: 3px; }
+.ssa-home, .ssa-home #industries { scroll-margin-top: 10rem; }
+
+/* ---------- Home ---------- */
+.ssa-hero {
+  color: var(--ssa-white);
+  background: var(--ssa-deep);
+  background-image:
+    linear-gradient(90deg, rgb(6 38 20 / .92), rgb(6 38 20 / .68) 48%, rgb(6 38 20 / .10) 100%),
+    url("../images/photos/sydney-harbour-office.jpg");
+  background-size: cover;
+  background-position: center, center 45%;
+}
+.ssa-hero-inner {
+  width: min(100%, 100rem);
+  min-height: clamp(30rem, 45vw, 46rem);
+  margin-inline: auto;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 7.5vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.ssa-hero h1 {
+  margin: 0;
+  font-family: var(--ssa-serif);
+  font-size: clamp(2.65rem, 6.6vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.ssa-hero h1 span { display: block; }
+.ssa-hero p {
+  max-width: 43ch;
+  margin: 1.2rem 0 0;
+  font-size: clamp(1rem, 1.45vw, 1.4rem);
+  line-height: 1.4;
+}
+.ssa-hero .ssa-location {
+  color: var(--ssa-lime);
+  font-size: .95rem;
+  font-weight: 650;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.ssa-pathways {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: clamp(1.4rem, 3.2vw, 3.2rem) 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 2rem);
+}
+.ssa-pathways .ssa-button { min-height: 4.5rem; font-size: clamp(1.1rem, 1.8vw, 1.75rem); }
+
+/* ---------- Job Seekers (also the base for Employers and Industries) ---------- */
+.ssa-jobs {
+  color: var(--ssa-ink);
+  background: var(--ssa-cream);
+  font-family: var(--ssa-sans);
+  line-height: 1.5;
+  scroll-margin-top: 12rem;
+}
+.ssa-jobs-wrap { width: min(100% - 2rem, 92rem); margin-inline: auto; }
+.ssa-jobs h1, .ssa-jobs h2, .ssa-jobs h3, .ssa-jobs p { margin: 0; }
+.ssa-jobs h1, .ssa-jobs h2, .ssa-jobs h3 { font-family: var(--ssa-serif); line-height: 1.1; }
+.ssa-jobs h2 { font-size: clamp(1.75rem, 3.4vw, 3rem); }
+.ssa-jobs-hero {
+  display: flex;
+  align-items: center;
+  min-height: clamp(26rem, 32vw, 36rem);
+  padding-block: clamp(2rem, 5vw, 4rem);
+  color: var(--ssa-white);
+  background-color: var(--ssa-deep);
+  background-image:
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
+    url("../images/photos/job-seekers-office.jpg");
+  background-size: cover;
+  background-position: center, center 18%;
+}
+.ssa-jobs-hero .ssa-jobs-wrap { padding-inline: clamp(0rem, 4vw, 3rem); }
+.ssa-jobs-hero h1 { max-width: 13ch; font-size: clamp(2.4rem, 5.2vw, 5rem); }
+.ssa-jobs-hero .ssa-jobs-eyebrow,
+.ssa-notfound .ssa-jobs-eyebrow {
+  margin-bottom: .35rem;
+  color: var(--ssa-lime);
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ssa-jobs-hero .ssa-jobs-intro { max-width: 47ch; margin-top: 1.2rem; }
+.ssa-jobs-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.ssa-jobs .ssa-jobs-explore, .ssa-jobs .ssa-jobs-explore:hover {
+  border-color: var(--ssa-lime);
+  color: var(--ssa-deep);
+  background: var(--ssa-lime);
+}
+.ssa-jobs .ssa-jobs-outline { border-color: var(--ssa-white); background: transparent; }
+.ssa-jobs .ssa-jobs-outline:hover { background: var(--ssa-green); }
+.ssa-jobs a:focus-visible { outline: 2px solid var(--ssa-deep); outline-offset: 3px; }
+.ssa-jobs-hero a:focus-visible { outline-color: var(--ssa-white); }
+
+/* Centred hero titles (Job Seekers, Employers, Industries): the hero gradients are an even tint so the whole photo shows. */
+.ssa-hero-centred { justify-content: center; text-align: center; }
+.ssa-hero-centred h1, .ssa-hero-centred .ssa-jobs-intro { margin-inline: auto; }
+.ssa-hero-centred .ssa-jobs-actions { justify-content: center; }
+.ssa-employers .ssa-hero-centred h1 { max-width: 20ch; }
+
+.ssa-jobs-section { padding-block: clamp(1.5rem, 3vw, 3rem); text-align: center; }
+.ssa-jobs-section > p { margin-top: .6rem; }
+.ssa-jobs-industries, .ssa-jobs-benefits ul { display: grid; padding: 0; list-style: none; }
+.ssa-jobs-industries, .ssa-jobs-services { gap: .9rem; margin: 1.5rem 0 0; }
+.ssa-jobs-industries { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.ssa-jobs-industries li, .ssa-jobs-services article {
+  overflow: hidden;
+  border-radius: .5rem;
+  background: var(--ssa-white);
+  box-shadow: var(--ssa-shadow);
+}
+.ssa-jobs-industries img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
+.ssa-jobs-industries h3 { padding: .7rem; font-size: 1.1rem; text-align: left; }
+.ssa-jobs-benefits { padding-block: clamp(1.5rem, 3vw, 3rem); color: var(--ssa-white); background: var(--ssa-band); }
+.ssa-jobs-benefits h2, .ssa-jobs-benefits h3, .ssa-jobs-benefits p { margin: 0; }
+.ssa-jobs-benefits h2 { font-family: var(--ssa-serif); font-size: clamp(1.75rem, 3.4vw, 3rem); line-height: 1.1; }
+.ssa-jobs-benefits-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+.ssa-jobs-benefits ul { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin: 0; text-align: center; }
+.ssa-jobs-benefits h3 { font: 700 1.1rem/1.2 var(--ssa-sans); }
+.ssa-jobs-benefits p { margin-top: .6rem; font-size: .95rem; }
+
+#career-services { scroll-margin-top: 12rem; }
+.ssa-jobs-services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ssa-jobs-services article {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+.ssa-jobs-services h3 { font-size: clamp(1.3rem, 2vw, 1.75rem); }
+.ssa-jobs-services p { padding-bottom: .6rem; }
+.ssa-jobs-services .ssa-button { margin-top: auto; }
+
+/* FAQs */
+.ssa-faq-list { max-width: 52rem; margin: 1.5rem auto 0; text-align: left; }
+.ssa-faq-list details { border-radius: .5rem; background: var(--ssa-white); box-shadow: var(--ssa-shadow); }
+.ssa-faq-list details + details { margin-top: .75rem; }
+.ssa-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.25rem;
+  padding: .75rem 1.1rem;
+  font: 700 1.1rem/1.3 var(--ssa-serif);
+  cursor: pointer;
+  list-style: none;
+}
+.ssa-faq-list summary::-webkit-details-marker { display: none; }
+.ssa-faq-list summary::after { content: "+"; flex: none; color: var(--ssa-green); font: 600 1.5rem/1 var(--ssa-sans); }
+.ssa-faq-list details[open] summary::after { content: "\2212"; }
+.ssa-faq-list summary:focus-visible { outline: 2px solid var(--ssa-deep); outline-offset: 2px; border-radius: .5rem; }
+.ssa-faq-group + .ssa-faq-group { margin-top: 3rem; }
+.ssa-faq-group h3 { margin-top: 1.5rem; color: var(--ssa-deep); font-family: var(--ssa-serif); font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
+.ssa-jobs-section .ssa-faq-cta { margin-top: 1.75rem; text-align: center; }
+.ssa-faq-answer { padding: 0 1.1rem 1rem; }
+.ssa-faq-answer p + p, .ssa-faq-answer ul { margin-top: .6rem; }
+.ssa-faq-answer ul { padding-left: 1.25rem; }
+
+/* ---------- Testimonials: floating cards ---------- */
+.ssa-testimonials { padding-block: clamp(2rem, 4vw, 4rem); background: var(--ssa-white); }
+.ssa-testimonials h2 {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  color: var(--ssa-deep);
+  font-family: var(--ssa-serif);
+  font-size: clamp(1.75rem, 3.4vw, 3rem);
+  line-height: 1.1;
+}
+.ssa-t-stage { width: min(100%, 52rem); margin-inline: auto; }
+.ssa-t-list { display: grid; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.ssa-t-slide[hidden] { display: none; }
+.ssa-t-slide figure {
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-radius: .75rem;
+  background: var(--ssa-cream);
+  box-shadow: 0 10px 28px rgb(6 38 20 / .14), 0 1px 3px rgb(6 38 20 / .1);
+}
+.ssa-t-slide blockquote { margin: 0; font: 500 clamp(1.05rem, 1.7vw, 1.3rem)/1.55 var(--ssa-serif); }
+.ssa-t-slide blockquote p { margin: 0; }
+.ssa-t-slide blockquote p + p { margin-top: .85rem; }
+.ssa-t-slide figcaption { display: grid; gap: .15rem; margin-top: 1.25rem; font-size: .95rem; }
+.ssa-t-slide figcaption strong { color: var(--ssa-deep); font-size: 1.05rem; }
+.ssa-t-note { font-size: .85rem; }
+.ssa-t-controls { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; }
+.ssa-t-controls[hidden] { display: none; }
+.ssa-t-count { margin: 0; min-width: 5rem; text-align: center; font-weight: 600; }
+.ssa-t-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid var(--ssa-green);
+  border-radius: 50%;
+  background: var(--ssa-green);
+  color: var(--ssa-white);
+  font: 600 1.2rem/1 var(--ssa-sans);
+  cursor: pointer;
+}
+.ssa-t-btn:hover { border-color: var(--ssa-deep); background: var(--ssa-deep); }
+.ssa-t-btn:focus-visible { outline: 2px solid var(--ssa-deep); outline-offset: 3px; }
+
+/* ---------- Employers ---------- */
+.ssa-employers .ssa-jobs-hero {
+  background-image:
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
+    url("../images/photos/employers-office.jpg");
+  background-position: center, 80% center;
+}
+.ssa-employers .ssa-jobs-hero h1 { max-width: 23ch; font-size: clamp(2.4rem, 4.1vw, 4.5rem); }
+#employer-solutions { scroll-margin-top: 12rem; }
+.ssa-employers .ssa-jobs-services article p { text-align: left; }
+.ssa-employers .ssa-jobs-services .ssa-note { padding-bottom: .6rem; font-size: .95rem; }
+.ssa-employers .ssa-jobs-benefits svg {
+  display: block;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin: 0 auto .45rem;
+  color: var(--ssa-lime);
+}
+.ssa-employers-close, .ssa-employers-process { display: grid; align-items: center; gap: 1.4rem; }
+.ssa-employers-close { grid-template-columns: 3fr 2fr; }
+.ssa-employers-process { grid-template-columns: auto 1fr; padding-block: clamp(1.4rem, 3vw, 2.5rem); }
+.ssa-employers-process h2 { font-family: var(--ssa-serif); }
+.ssa-employers-process ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding-inline-start: 1.8rem;
+}
+.ssa-employers-process li { padding-inline-start: .25rem; }
+.ssa-employers-process li::marker { color: var(--ssa-green); font-weight: 700; }
+.ssa-employers-process h3 { font-size: 1.15rem; }
+.ssa-employers-process p { margin-top: .3rem; }
+
+/* ---------- Industries ---------- */
+.ssa-industries .ssa-jobs-hero {
+  background-image:
+    linear-gradient(rgb(7 57 36 / .62), rgb(7 57 36 / .62)),
+    url("../images/photos/industries-team.jpg");
+  background-position: center, 70% 12%;
+}
+.ssa-industries .ssa-jobs-hero h1 { max-width: 13ch; }
+.ssa-industry-grid { padding-block: clamp(1.25rem, 4vw, 3rem); }
+.ssa-industry-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.ssa-industry-row + .ssa-industry-row { margin-top: 1rem; }
+.ssa-industry-card, .ssa-industry-panel { border-radius: .65rem; background: var(--ssa-white); box-shadow: var(--ssa-shadow); }
+.ssa-industry-card { flex: 0 1 calc((100% - 3rem) / 4); min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+/* Wide crop keeps the small source images (396px wide, 172px tall at the shortest) from being enlarged. */
+.ssa-industry-card img { display: block; width: 100%; height: auto; aspect-ratio: 11 / 5; object-fit: cover; object-position: center 25%; }
+.ssa-industry-card, .ssa-industry-panel { text-align: center; }
+.ssa-industry-card-copy { padding: 1rem; }
+.ssa-industry-card h2 { font-size: clamp(1.2rem, 2vw, 1.65rem); }
+.ssa-industry-card p { margin-top: .55rem; }
+.ssa-industry-card button {
+  min-height: 2.75rem;
+  margin: auto 1rem .65rem;
+  padding: 0 .25rem;
+  border: 0;
+  border-radius: .25rem;
+  background: transparent;
+  color: var(--ssa-green);
+  cursor: pointer;
+  font: 700 1rem/1.25 var(--ssa-sans);
+  text-align: center;
+}
+.ssa-industry-card button:hover { text-decoration: underline; }
+.ssa-industry-card button:focus-visible { outline: 2px solid var(--ssa-green); outline-offset: 2px; }
+.ssa-industry-panel { flex: 0 0 100%; padding: clamp(1rem, 3vw, 2rem); scroll-margin-top: 12rem; }
+.ssa-industry-panel[hidden] { display: none; }
+.ssa-industry-panel h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+.ssa-industry-panel dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.5rem; margin: .85rem 0 0; }
+.ssa-industry-panel dt { font-weight: 700; }
+.ssa-industry-panel dd { margin: .15rem 0 0; }
+
+/* ---------- About ---------- */
+.ssa-about { scroll-margin-top: 12rem; color: var(--ssa-ink); background: var(--ssa-cream); font: 1rem/1.55 var(--ssa-sans); }
+.ssa-about-wrap { width: min(93%, 90rem); margin-inline: auto; }
+.ssa-about h1, .ssa-about h2, .ssa-about p { margin: 0; }
+.ssa-about h1, .ssa-about h2 { font-family: var(--ssa-serif); line-height: 1.08; }
+.ssa-about h1 { font-size: clamp(2.3rem, 4.7vw, 4.8rem); }
+.ssa-about h2 { font-size: clamp(2.1rem, 5vw, 4.5rem); }
+.ssa-about p + p { margin-top: .75rem; }
+.ssa-about .ssa-about-eyebrow {
+  margin-bottom: .65rem;
+  font-size: .9rem;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.ssa-about-hero, .ssa-about-close { color: var(--ssa-white); background-color: var(--ssa-band); }
+.ssa-about-hero {
+  padding-block: clamp(2.8rem, 6vw, 6rem);
+  background-image:
+    linear-gradient(90deg, rgb(6 38 20 / .98), rgb(6 38 20 / .88) 42%, rgb(6 38 20 / .2) 70%, transparent),
+    url("../images/photos/about-office.jpg");
+  background-size: cover;
+  background-position: center, center 48%;
+}
+.ssa-about-hero .ssa-about-wrap { padding-inline: clamp(0rem, 4vw, 4rem); }
+.ssa-about-hero .ssa-about-eyebrow { color: var(--ssa-lime); }
+.ssa-about-intro { max-width: 46ch; margin-top: 1.2rem; }
+.ssa-about-approach, .ssa-about-founder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  gap: clamp(1.4rem, 7vw, 5rem);
+  align-items: center;
+  padding-block: clamp(2rem, 5vw, 5rem);
+}
+.ssa-about-approach h2, .ssa-about-founder h2, .ssa-about-founder .ssa-about-eyebrow { color: var(--ssa-deep); }
+.ssa-about-approach p { font-family: var(--ssa-serif); font-size: clamp(1.1rem, 2vw, 1.55rem); }
+.ssa-about-founder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 6 / 7;
+  object-fit: cover;
+  border-radius: .75rem;
+}
+.ssa-about-founder h2 { margin-bottom: .9rem; }
+.ssa-about-founder .ssa-button { margin-top: 1.35rem; }
+.ssa-about-close { padding-block: clamp(2rem, 5vw, 4.5rem); }
+.ssa-about-close p {
+  max-width: 57ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  line-height: 1.3;
+}
+.ssa-about-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.8rem, 3vw, 2rem);
+  width: min(100%, 44rem);
+  margin: 1.8rem auto 0;
+}
+.ssa-about-actions .ssa-button { min-height: 3.5rem; text-align: center; }
+.ssa-about .ssa-about-primary { color: var(--ssa-deep); background: var(--ssa-lime); border-color: var(--ssa-lime); }
+.ssa-about .ssa-about-primary:hover { filter: brightness(.92); color: var(--ssa-deep); background: var(--ssa-lime); border-color: var(--ssa-lime); }
+.ssa-about .ssa-about-outline { color: var(--ssa-white); background: transparent; border-color: var(--ssa-white); }
+.ssa-about .ssa-about-outline:hover { background: var(--ssa-green); }
+.ssa-about a:focus-visible { outline: 2px solid var(--ssa-deep); outline-offset: 3px; }
+.ssa-about-close a:focus-visible { outline-color: var(--ssa-white); }
+
+/* ---------- Contact ---------- */
+.ssa-contact { color: var(--ssa-ink); background: var(--ssa-cream); font: 1rem/1.5 var(--ssa-sans); scroll-margin-top: 12rem; }
+.ssa-contact-wrap { width: min(88%, 84rem); margin-inline: auto; }
+.ssa-contact-hero {
+  padding-block: clamp(2.75rem, 5.5vw, 6rem);
+  color: var(--ssa-white);
+  background: var(--ssa-deep);
+  background-image:
+    linear-gradient(90deg, #062614 0%, rgb(6 38 20 / .95) 29%, rgb(6 38 20 / .62) 39%, transparent 58%),
+    url("../images/photos/contact-hobart-waterfront.jpg");
+  background-size: cover;
+  background-position: center, center 48%;
+}
+.ssa-contact h1, .ssa-contact h2 { margin: 0; font-family: var(--ssa-serif); line-height: 1.07; }
+.ssa-contact h1 { max-width: 13ch; font-size: clamp(2.65rem, 5vw, 5rem); }
+.ssa-contact h2 { color: var(--ssa-deep); font-size: clamp(2.1rem, 4vw, 4rem); }
+.ssa-contact-hero p { max-width: 38ch; margin: 1rem 0 0; }
+.ssa-contact-hero .ssa-contact-eyebrow {
+  margin: 0 0 .7rem;
+  color: var(--ssa-lime);
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ssa-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-block: clamp(2rem, 4vw, 4rem);
+  scroll-margin-top: 12rem;
+}
+.ssa-contact-details p { max-width: 33ch; margin: 1rem 0; }
+.ssa-contact-details ul { display: grid; gap: .7rem; padding: 0; margin: 0; list-style: none; }
+.ssa-contact-details li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); align-items: center; gap: .75rem; }
+.ssa-contact-details svg, .ssa-contact-in { color: var(--ssa-green); }
+.ssa-contact-details svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ssa-contact-in { font-size: 1.25rem; font-weight: 750; }
+.ssa-contact-details a { color: var(--ssa-green); overflow-wrap: anywhere; }
+.ssa-contact-form { display: grid; gap: 1rem; }
+.ssa-contact-form label { display: block; margin-bottom: .3rem; font-weight: 700; }
+.ssa-contact-form :is(input, select, textarea) {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: .65rem .75rem;
+  border: 1px solid var(--ssa-field);
+  border-radius: .35rem;
+  background: var(--ssa-white);
+  color: var(--ssa-ink);
+  font: inherit;
+}
+.ssa-contact-form :is(input, select, textarea)[aria-invalid="true"] { border-color: #9b1c1c; border-width: 2px; }
+.ssa-contact-form textarea { resize: vertical; }
+.ssa-contact-form .ssa-button { justify-self: start; }
+.ssa-error { margin: .3rem 0 0; color: #9b1c1c; font-size: .95rem; font-weight: 600; }
+.ssa-error[hidden] { display: none; }
+.ssa-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.ssa-form-status { margin: 0; font-weight: 600; color: var(--ssa-green); }
+.ssa-form-status:empty { display: none; }
+.ssa-form-status--error { color: #9b1c1c; }
+.ssa-form-status:focus { outline: none; }
+html:not(.js) #f-submit { display: none; }
+.ssa-contact :is(a, button, input, select, textarea):focus-visible { outline: 2px solid var(--ssa-green); outline-offset: 3px; }
+
+/* ---------- 404 ---------- */
+.ssa-notfound { padding-block: clamp(3rem, 8vw, 7rem); background: var(--ssa-band); color: var(--ssa-white); }
+.ssa-notfound h1 { margin: 0 0 .75rem; font-family: var(--ssa-serif); font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; }
+.ssa-notfound p { margin: 0 0 .5rem; max-width: 46ch; }
+.ssa-notfound .ssa-button { border-color: var(--ssa-white); }
+.ssa-notfound .ssa-outline { color: var(--ssa-white); }
+.ssa-notfound .ssa-outline:hover { color: var(--ssa-white); background: var(--ssa-green); border-color: var(--ssa-white); }
+.ssa-notfound a:focus-visible { outline: 2px solid var(--ssa-white); outline-offset: 3px; }
+
+/* ---------- Footer ---------- */
+.ssa-footer { border-top: 1px solid #dcdcdc; background: var(--ssa-cream); }
+.ssa-footer-inner {
+  width: min(100% - 2rem, 92rem);
+  margin-inline: auto;
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  gap: 2rem;
+}
+.ssa-footer-brand img { display: block; width: min(100%, 15rem); height: auto; }
+.ssa-footer p { margin: .75rem 0 0; }
+.ssa-footer-abn { font-size: .9rem; }
+.ssa-footer h2 { margin: 0 0 .5rem; font: 700 .9rem/1.2 var(--ssa-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ssa-deep); }
+.ssa-footer ul { margin: 0; padding: 0; list-style: none; }
+.ssa-footer li a { display: inline-flex; align-items: center; min-height: 2.25rem; overflow-wrap: anywhere; }
+.ssa-footer a:focus-visible { outline: 2px solid var(--ssa-ink); outline-offset: 3px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 70rem) {
+  .ssa-header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: .65rem;
+    row-gap: .25rem;
+  }
+  .ssa-nav { grid-column: 1 / -1; grid-row: 2; }
+  .ssa-book { grid-column: 2; grid-row: 1; font-size: .85rem; }
+  .ssa-jobs-industries { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ssa-jobs-benefits-inner { grid-template-columns: 1fr; text-align: center; }
+}
+@media (max-width: 62rem) {
+  .ssa-industry-card { flex-basis: calc((100% - 1rem) / 2); }
+}
+@media (max-width: 60rem) {
+  .ssa-employers-process, .ssa-employers-close { grid-template-columns: 1fr; }
+  .ssa-jobs-services { grid-template-columns: 1fr; }
+  .ssa-footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 48rem) {
+  .ssa-jobs-hero {
+    align-items: end;
+    min-height: 32rem;
+    background-image:
+      linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
+      url("../images/photos/job-seekers-office.jpg");
+    background-position: center, center 18%;
+  }
+  .ssa-employers .ssa-jobs-hero {
+    background-image:
+      linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
+      url("../images/photos/employers-office.jpg");
+  }
+  .ssa-industries .ssa-jobs-hero {
+    background-image:
+      linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .92) 52%, rgb(7 57 36 / .22) 100%),
+      url("../images/photos/industries-team.jpg");
+  }
+  .ssa-jobs-industries, .ssa-jobs-benefits ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ssa-employers-process ol { grid-template-columns: 1fr; }
+  .ssa-contact-grid { grid-template-columns: 1fr; }
+  .ssa-contact-hero {
+    background-image:
+      linear-gradient(0deg, #062614 0%, rgb(6 38 20 / .9) 55%, rgb(6 38 20 / .45)),
+      url("../images/photos/contact-hobart-waterfront.jpg");
+    background-position: center, 68% center;
+  }
+}
+@media (max-width: 46rem) {
+  .ssa-about-approach, .ssa-about-founder { grid-template-columns: 1fr; }
+  .ssa-about-founder img { max-width: 27rem; }
+  .ssa-about-hero {
+    background-image:
+      linear-gradient(0deg, #073924 8%, rgb(7 57 36 / .9) 55%, rgb(7 57 36 / .5)),
+      url("../images/photos/about-office.jpg");
+    background-position: center, 72% center;
+  }
+}
+@media (max-width: 40rem) {
+  .ssa-header { position: static; }
+  .ssa-header-inner { padding-inline: .75rem; }
+  .ssa-brand img { width: min(100%, 10rem); }
+  .ssa-book { padding-inline: .6rem; }
+  .ssa-nav { gap: 0 .75rem; font-size: .85rem; }
+  .ssa-home, .ssa-home #industries { scroll-margin-top: 12rem; }
+  .ssa-hero {
+    background-image:
+      linear-gradient(0deg, rgb(6 38 20 / .98), rgb(6 38 20 / .82) 55%, rgb(6 38 20 / .28)),
+      url("../images/photos/sydney-harbour-office.jpg");
+    background-position: center, 62% center;
+  }
+  .ssa-hero-inner { padding-bottom: 2.5rem; }
+  .ssa-pathways { grid-template-columns: 1fr; }
+  .ssa-footer-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 34rem) {
+  .ssa-industry-card { flex-basis: 100%; }
+  .ssa-industry-panel dl { grid-template-columns: 1fr; }
+  .ssa-about-actions { grid-template-columns: 1fr; max-width: 24rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ssa-button, .ssa-t-btn { transition: background-color .15s, border-color .15s; }
+}
